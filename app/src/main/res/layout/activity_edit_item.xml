@@ -11,22 +11,37 @@
     tools:context="org.agoenka.golist.EditItemActivity">
 
     <EditText
+        android:id="@+id/etEditItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
-        android:id="@+id/etEditItem"
-        android:layout_alignParentTop="true"
-        android:ems="15" />
+        android:ems="15"/>
+
+    <DatePicker
+        android:id="@+id/dpDueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etEditItem"
+        style="@android:style/Widget.DatePicker" />
+
+    <Spinner
+        android:id="@+id/spnPriority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/dpDueDate" />
 
     <Button
+        android:id="@+id/btnSave"
         android:text="@string/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnSave"
-        android:layout_below="@+id/etEditItem"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp"
-        android:onClick="onSave" />
+        android:layout_below="@id/spnPriority"
+        android:onClick="onSave"/>
 
 </RelativeLayout>
