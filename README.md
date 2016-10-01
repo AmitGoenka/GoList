@@ -1,6 +1,6 @@
 # Pre-work - *GoList*
 
-**GoList** is an android app that allows building a todo list and basic todo items management functionality including adding new items, editing and deleting an existing item.
+**GoList** is an android app that features todo list management with support for adding new tasks, editing and deleting an existing task.
 
 Submitted by: **Amit Goenka**
 
