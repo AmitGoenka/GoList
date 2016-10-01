@@ -1,4 +1,4 @@
-package org.agoenka.golist;
+package org.agoenka.golist.models;
 
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
@@ -12,9 +12,9 @@ import java.util.List;
  * Version: ${VERSION}
  */
 
-class TodoDBHelper {
+public class TodoWrapper {
 
-    static List<Todo> getTodoItems () {
+    public static List<Todo> getTodoItems () {
         List<Todo> todoList = SQLite.select().from(Todo.class).orderBy(Todo_Table.createdDateTime, true).queryList();
         for (Todo todo : todoList) {
             todo.priority = Priority.get(todo.priorityCode);
@@ -22,7 +22,7 @@ class TodoDBHelper {
         return todoList;
     }
 
-    static Todo addTodoItems (String description, Date dueDate, Priority priority) {
+    public static Todo addTodoItems (String description, Date dueDate, Priority priority) {
         Todo todo = new Todo();
 
         Date createdDateTime = Calendar.getInstance().getTime();
@@ -40,11 +40,11 @@ class TodoDBHelper {
         return todo;
     }
 
-    static void saveTodoItems (Todo todo) {
+    public static void saveTodoItems (Todo todo) {
         todo.save();
     }
 
-    static void deleteTodoItems(Todo todo) {
+    public static void deleteTodoItems(Todo todo) {
         todo.delete();
     }
 

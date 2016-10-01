@@ -1,4 +1,4 @@
-package org.agoenka.golist;
+package org.agoenka.golist.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,9 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import org.agoenka.golist.R;
+import org.agoenka.golist.models.Todo;
+
 import java.util.List;
 
-import static org.agoenka.golist.DateUtils.formatDate;
+import static org.agoenka.golist.utils.DateUtils.formatDate;
 import static org.agoenka.golist.R.id.tvDueDate;
 import static org.agoenka.golist.R.id.tvPriority;
 
@@ -21,7 +24,7 @@ import static org.agoenka.golist.R.id.tvPriority;
  * Version: ${VERSION}
  */
 
-class TodoItemsAdapter extends ArrayAdapter<Todo> {
+public class TodoItemsAdapter extends ArrayAdapter<Todo> {
 
     private static class ViewHolder {
         TextView tvTodoDescription;
@@ -29,7 +32,7 @@ class TodoItemsAdapter extends ArrayAdapter<Todo> {
         TextView tvPriority;
     }
 
-    TodoItemsAdapter(Context context, List<Todo> objects) {
+    public TodoItemsAdapter(Context context, List<Todo> objects) {
         super(context, 0, objects);
     }
 

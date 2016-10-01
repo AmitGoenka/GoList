@@ -1,4 +1,4 @@
-package org.agoenka.golist;
+package org.agoenka.golist.utils;
 
 import android.widget.DatePicker;
 
@@ -11,9 +11,9 @@ import java.util.Date;
  * Version: ${VERSION}
  */
 
-class DateUtils {
+public class DateUtils {
 
-    static String formatDate(Date date) {
+    public static String formatDate(Date date) {
         if (date != null) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
@@ -25,7 +25,7 @@ class DateUtils {
         return null;
     }
 
-    static Calendar getCalendar(Date date) {
+    public static Calendar getCalendar(Date date) {
         if (date != null) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
@@ -34,7 +34,7 @@ class DateUtils {
         return null;
     }
 
-    static Date getDate(DatePicker picker) {
+    public static Date getDate(DatePicker picker) {
         if (picker != null) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(picker.getYear(), picker.getMonth(), picker.getDayOfMonth());

@@ -1,4 +1,4 @@
-package org.agoenka.golist;
+package org.agoenka.golist.utils;
 
 import android.content.Context;
 
@@ -15,7 +15,7 @@ import java.util.List;
  * Version: ${VERSION}
  */
 
-public class LocalFilesHelper {
+public class LocalFilesUtils {
 
     static List<String> readItems(Context context, String fileName) {
         File filesDir = context.getFilesDir();

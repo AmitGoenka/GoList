@@ -1,20 +1,25 @@
-package org.agoenka.golist;
+package org.agoenka.golist.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import org.agoenka.golist.models.Priority;
+import org.agoenka.golist.R;
+import org.agoenka.golist.models.Todo;
+
 import java.util.Calendar;
 
-import static org.agoenka.golist.DateUtils.getCalendar;
-import static org.agoenka.golist.DateUtils.getDate;
-import static org.agoenka.golist.MainActivity.TODO_ITEM_KEY;
-import static org.agoenka.golist.MainActivity.TODO_ITEM_POSITION_KEY;
+import static org.agoenka.golist.utils.DateUtils.getCalendar;
+import static org.agoenka.golist.utils.DateUtils.getDate;
+import static org.agoenka.golist.activities.MainActivity.TODO_ITEM_KEY;
+import static org.agoenka.golist.activities.MainActivity.TODO_ITEM_POSITION_KEY;
 
 public class EditItemActivity extends AppCompatActivity {
 
@@ -24,6 +29,7 @@ public class EditItemActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_edit_item);
 
         setPrioritySpinnerAdapter();

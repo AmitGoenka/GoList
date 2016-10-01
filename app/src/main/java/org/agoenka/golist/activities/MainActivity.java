@@ -1,4 +1,4 @@
-package org.agoenka.golist;
+package org.agoenka.golist.activities;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -11,6 +11,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import org.agoenka.golist.R;
+import org.agoenka.golist.models.Todo;
+import org.agoenka.golist.models.TodoWrapper;
+import org.agoenka.golist.adapters.TodoItemsAdapter;
 
 import java.util.List;
 
@@ -31,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         lvItems = (ListView) findViewById(R.id.lvItems);
-        items = TodoDBHelper.getTodoItems();
+        items = TodoWrapper.getTodoItems();
         itemsAdapter = new TodoItemsAdapter(this, items);
         lvItems.setAdapter(itemsAdapter);
 
@@ -48,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                         .setPositiveButton("Yes",  new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int id) {
-                                TodoDBHelper.deleteTodoItems(items.get(position));
+                                TodoWrapper.deleteTodoItems(items.get(position));
                                 items.remove(position);
                                 itemsAdapter.notifyDataSetChanged();
                             }
@@ -85,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             int position = data.getIntExtra(TODO_ITEM_POSITION_KEY, -1);
             if (position > -1) {
                 items.set(position, todoItem);
-                TodoDBHelper.saveTodoItems(todoItem);
+                TodoWrapper.saveTodoItems(todoItem);
                 itemsAdapter.notifyDataSetChanged();
             }
         }
@@ -93,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onAddItem(View view) {
         EditText eNewItem = (EditText) findViewById(R.id.etNewItem);
-        Todo todo = TodoDBHelper.addTodoItems(eNewItem.getText().toString(), null, null);
+        Todo todo = TodoWrapper.addTodoItems(eNewItem.getText().toString(), null, null);
         itemsAdapter.add(todo);
         eNewItem.setText("");
         removeSoftInput(view);

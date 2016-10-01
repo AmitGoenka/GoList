@@ -1,4 +1,4 @@
-package org.agoenka.golist;
+package org.agoenka.golist.models;
 
 /**
  * Author: agoenka

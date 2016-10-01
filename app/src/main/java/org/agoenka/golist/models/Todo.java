@@ -1,9 +1,11 @@
-package org.agoenka.golist;
+package org.agoenka.golist.models;
 
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
+
+import org.agoenka.golist.GoListDatabase;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -19,16 +21,16 @@ public class Todo extends BaseModel implements Serializable {
 
     @Column
     @PrimaryKey
-    Date createdDateTime;
+    public Date createdDateTime;
 
     @Column
-    String description;
+    public String description;
 
     @Column
-    Date dueDate;
+    public Date dueDate;
 
     @Column
-    int priorityCode;
+    public int priorityCode;
 
-    Priority priority;
+    public Priority priority;
 }
