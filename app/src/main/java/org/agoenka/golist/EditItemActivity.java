@@ -26,6 +26,8 @@ public class EditItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_item);
 
+        setPrioritySpinnerAdapter();
+
         Intent intent = getIntent();
         if (intent != null) {
             todoItem = (Todo) intent.getSerializableExtra(TODO_ITEM_KEY);

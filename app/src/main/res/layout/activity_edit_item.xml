@@ -10,38 +10,72 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="org.agoenka.golist.EditItemActivity">
 
+    <TextView
+        android:id="@+id/tvLabelTaskName"
+        android:text="@string/task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="40dp" />
+
     <EditText
         android:id="@+id/etEditItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvLabelTaskName"
+        android:layout_toEndOf="@id/tvLabelTaskName"
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="10dp"
         android:inputType="textMultiLine"
-        android:ems="15"/>
+        android:ems="10"
+        android:lines="1"/>
+
+    <TextView
+        android:id="@+id/tvLabelDueDate"
+        android:text="@string/due_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvLabelTaskName" />
 
     <DatePicker
         android:id="@+id/dpDueDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/etEditItem"
-        style="@android:style/Widget.DatePicker" />
+        android:layout_toRightOf="@+id/tvLabelDueDate"
+        android:layout_toEndOf="@+id/tvLabelDueDate"
+        style="@android:style/Widget.DatePicker"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp" />
+
+    <TextView
+        android:id="@+id/tvLabelSpinner"
+        android:text="@string/priority"
+        android:layout_below="@id/dpDueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginTop="30dp"/>
 
     <Spinner
         android:id="@+id/spnPriority"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/dpDueDate" />
+        android:layout_below="@+id/dpDueDate"
+        android:layout_toRightOf="@+id/tvLabelSpinner"
+        android:layout_toEndOf="@+id/tvLabelSpinner"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp" />
 
     <Button
         android:id="@+id/btnSave"
         android:text="@string/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_below="@id/spnPriority"
+        android:layout_marginTop="30dp"
         android:onClick="onSave"/>
 
 </RelativeLayout>

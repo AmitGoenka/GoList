@@ -1,6 +1,8 @@
 package org.agoenka.golist;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -40,10 +42,24 @@ public class MainActivity extends AppCompatActivity {
     private void setupListViewLongClickListener() {
         lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                TodoDBHelper.deleteTodoItems(items.get(position));
-                items.remove(position);
-                itemsAdapter.notifyDataSetChanged();
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, final long id) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("Are you sure you want to delete this task?")
+                        .setPositiveButton("Yes",  new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                TodoDBHelper.deleteTodoItems(items.get(position));
+                                items.remove(position);
+                                itemsAdapter.notifyDataSetChanged();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, final int id) {
+                                dialog.cancel();
+                            }
+                        })
+                        .show();
                 return true;
             }
         });
