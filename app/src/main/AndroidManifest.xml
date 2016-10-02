@@ -8,15 +8,13 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name="org.agoenka.golist.activities.MainActivity">
+        android:theme="@style/AppTheme.Splash">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="org.agoenka.golist.activities.EditItemActivity"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
     </application>
 
 </manifest>
