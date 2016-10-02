@@ -8,6 +8,5 @@
 libs/
 src/main/res/drawable/
 app/build/
-app/src/main/res/drawable/
+--app/src/main/res/drawable/
 .idea/
-/.idea/

@@ -49,6 +49,7 @@ public class EditTaskDialogFragment extends DialogFragment {
 
     public static EditTaskDialogFragment newInstance(String title, Todo item, int position) {
         EditTaskDialogFragment fragment = new EditTaskDialogFragment();
+        fragment.setStyle(DialogFragment.STYLE_NORMAL, R.style.AppTheme_Dialog);
         fragment.setArguments(new Bundle());
         fragment.getArguments().putString(KEY_TITLE, title);
         fragment.getArguments().putSerializable(KEY_ITEM, item);
